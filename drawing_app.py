@@ -7,7 +7,7 @@ import io
 import base64
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/predict": {"origins": "https://main--digitnn.netlify.app"}})
 
 # Load the TensorFlow model
 model = tf.keras.models.load_model('model/digits_model.h5')
