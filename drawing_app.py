@@ -38,10 +38,6 @@ def predict():
     # Reshape and prepare for the model
     image_reshaped = image_normalized.reshape(1, 28, 28, 1)  # Assuming your model expects this shape
     
-    # Save the debug image after preprocessing
-    debug_image = Image.fromarray((image_normalized * 255).astype(np.uint8))  # Scale back to [0, 255] for saving as an image
-    debug_image.save('debug_image.png')
-    
     # Predict
     prediction = model.predict(image_reshaped)
     predicted_class = np.argmax(prediction)
